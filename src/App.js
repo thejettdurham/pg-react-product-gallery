@@ -1,19 +1,39 @@
-import React, { Component } from "react";
+import React from "react";
 import "./App.css";
+import StoreProvider from "./StoreProvider";
+import Header from "./components/Header";
+import Modal from "./components/Modal";
+import ProductListing from "./screens/ProductListing";
 import store from "./store";
+import ProductDetail from "./components/ProductDetail";
+import Content from "./components/Content";
 
-export default class App extends Component {
-  render() {
-    console.log(store.initialState);
+const AppPresentation = () => {
+  const {
+    state: { product }
+  } = React.useContext(store.StoreContext);
 
-    return (
-      <div className="welcome-message">
-        <h1>Welcome to your blank canvas!</h1>
-        <p>
-          Be sure to inspect and familiarize yourself with what data you will be
-          working with. This is already imported for you from './data.js'.
-        </p>
-      </div>
-    );
-  }
-}
+  return (
+    <>
+      <Header />
+      {product == null ? null : (
+        <Modal>
+          <ProductDetail product={product} />
+        </Modal>
+      )}
+      <Content>
+        <ProductListing />
+      </Content>
+    </>
+  );
+};
+
+const App = () => {
+  return (
+    <StoreProvider>
+      <AppPresentation />
+    </StoreProvider>
+  );
+};
+
+export default App;

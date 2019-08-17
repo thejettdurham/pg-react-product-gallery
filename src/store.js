@@ -1,3 +1,4 @@
+import React from "react";
 import _ from "lodash";
 import { products, categories } from "./data";
 
@@ -6,8 +7,10 @@ const initialState = {
     products: _.keyBy(products, "id"),
     categories: _.keyBy(categories, "id")
   },
-  selectedCategory: null,
-  priceFilter: [null, null],
+  category: null,
+  product: null,
+  minPrice: null,
+  maxPrice: null,
   search: ""
 };
 
@@ -15,33 +18,40 @@ const actions = {
   SET_SEARCH: "SET_SEARCH",
   SET_MIN_PRICE: "SET_MIN_PRICE",
   SET_MAX_PRICE: "SET_MAX_PRICE",
-  SET_CATEGORY: "SET_CATEGORY"
+  SET_CATEGORY: "SET_CATEGORY",
+  SET_PRODUCT: "SET_PRODUCT"
 };
 
 const stateReducer = (state, action) => {
   switch (action.type) {
-    case "SET_SEARCH":
+    case actions.SET_SEARCH:
       return {
         ...state,
         search: action.payload
       };
 
-    case "SET_MIN_PRICE":
+    case actions.SET_MIN_PRICE:
       return {
         ...state,
-        priceFilter: [action.payload, state.priceFilter[1]]
+        minPrice: action.payload
       };
 
-    case "SET_MAX_PRICE":
+    case actions.SET_MAX_PRICE:
       return {
         ...state,
-        priceFilter: [state.priceFilter[0], action.payload]
+        maxPrice: action.payload
       };
 
-    case "SET_CATEGORY":
+    case actions.SET_CATEGORY:
       return {
         ...state,
-        selectedCategory: action.payload
+        category: action.payload
+      };
+
+    case actions.SET_PRODUCT:
+      return {
+        ...state,
+        product: action.payload
       };
 
     default:
@@ -49,10 +59,13 @@ const stateReducer = (state, action) => {
   }
 };
 
+const StoreContext = React.createContext({});
+
 const store = {
   initialState,
   actions,
-  stateReducer
+  stateReducer,
+  StoreContext
 };
 
 export default store;
