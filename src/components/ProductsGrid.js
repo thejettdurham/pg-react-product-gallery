@@ -4,20 +4,36 @@ import store from "../store";
 import ProductGridItem from "./ProductGridItem";
 
 const styles = {
-  wrapper: {},
-  headerText: {}
+  wrapper: {
+    display: "flex",
+    flexDirection: "column"
+  },
+  itemsWrapper: {
+    display: "grid",
+    gridTemplateColumns: "1fr 1fr 1fr 1fr",
+    gridGap: "28px"
+  },
+  headerText: {
+    margin: "0 0 35px",
+    fontSize: "27px",
+    fontWeight: 400,
+    color: "#2d2d2d",
+    lineHeight: "31px"
+  }
 };
 
 const ProductsGridPresentation = ({ category, products, selectProduct }) => (
   <div style={styles.wrapper}>
     <h2 style={styles.headerText}>{category.name}</h2>
-    {products.map(product => (
-      <ProductGridItem
-        key={product.id}
-        product={product}
-        onClick={() => selectProduct(product.id)}
-      />
-    ))}
+    <div style={styles.itemsWrapper}>
+      {products.map(product => (
+        <ProductGridItem
+          key={product.id}
+          product={product}
+          onClick={() => selectProduct(product.id)}
+        />
+      ))}
+    </div>
   </div>
 );
 

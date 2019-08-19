@@ -6,4 +6,6 @@ const execWithEventValue = func => event => {
   return func(value);
 };
 
-export { execWithEventValue };
+const displayPrice = priceNum => `\$${priceNum.toFixed(2)}`;
+
+export { execWithEventValue, displayPrice };
