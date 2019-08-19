@@ -7,14 +7,15 @@ const styles = {
     background: "#f8cb00",
     display: "flex",
     borderTop: "5px solid #6364d8",
-    alignItems: "center"
+    alignItems: "center",
+    marginBottom: "38px"
   },
   headerText: {
     fontSize: "36px",
     lineHeight: "33px",
     color: "#fff",
     margin: "50px 0",
-    padding: "0 25px"
+    paddingRight: "50px"
   }
 };
 

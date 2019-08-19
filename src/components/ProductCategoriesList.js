@@ -1,12 +1,21 @@
 import React from "react";
 import store from "../store";
+import ProductSidebarHeader from "./ProductSidebarHeader";
 
 const styles = {
-  wrapper: {},
-  headerText: {},
-  categoryText: {},
+  categoriesWrapper: {
+    margin: "20px 0",
+    listStyleType: "none",
+    padding: 0
+  },
+  categoryText: {
+    fontSize: "15px",
+    lineHeight: "31px",
+    color: "rgba(123, 123, 123, 0.78)",
+    cursor: "pointer"
+  },
   selectedCategoryText: {
-    color: "red"
+    color: "#f8cb00"
   }
 };
 
@@ -15,27 +24,27 @@ const ProductCategoriesListPresentation = ({
   selectedCategory,
   selectCategory
 }) => (
-  <div style={styles.wrapper}>
-    <h4 style={styles.headerText}>ALL CATEGORIES</h4>
-    {categories.map(category => {
-      const categoryIsSelected = category.id === selectedCategory;
+  <div>
+    <ProductSidebarHeader>ALL CATEGORIES</ProductSidebarHeader>
+    <ul style={styles.categoriesWrapper}>
+      {categories.map(category => {
+        const categoryIsSelected = category.id === selectedCategory;
 
-      const style = categoryIsSelected
-        ? { ...styles.categoryText, ...styles.selectedCategoryText }
-        : styles.categoryText;
+        const style = categoryIsSelected
+          ? { ...styles.categoryText, ...styles.selectedCategoryText }
+          : styles.categoryText;
 
-      return (
-        <p
-          key={category.id}
-          onClick={() =>
-            selectCategory(category.id)
-          }
-          {...{ style }}
-        >
-          {category.name}
-        </p>
-      );
-    })}
+        return (
+          <li
+            key={category.id}
+            onClick={() => selectCategory(category.id)}
+            {...{ style }}
+          >
+            {category.name}
+          </li>
+        );
+      })}
+    </ul>
   </div>
 );
 

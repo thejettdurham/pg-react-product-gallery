@@ -1,15 +1,22 @@
 import React from "react";
-import ProductSidebar from "../components/ProductSidebar";
 import ProductsGrid from "../components/ProductsGrid";
+import ProductCategoriesList from "../components/ProductCategoriesList";
+import ProductPriceFilter from "../components/ProductPriceFilter";
+import SidebarWrapper from "../components/SidebarWrapper";
 
 const styles = {
-  wrapper: {}
+  wrapper: {
+    display: "flex"
+  }
 };
 
 const ProductListing = () => {
   return (
     <div style={styles.wrapper}>
-      <ProductSidebar />
+      <SidebarWrapper>
+        <ProductCategoriesList />
+        <ProductPriceFilter />
+      </SidebarWrapper>
       <ProductsGrid />
     </div>
   );

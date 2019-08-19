@@ -8,6 +8,7 @@ const styles = {
   },
   contentWrapper: {
     display: "flex",
+    flexDirection: "column",
     marginLeft: "126px"
   }
 };

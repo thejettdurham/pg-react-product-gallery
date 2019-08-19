@@ -6,7 +6,6 @@ import Modal from "./components/Modal";
 import ProductListing from "./screens/ProductListing";
 import store from "./store";
 import ProductDetail from "./components/ProductDetail";
-import Content from "./components/Content";
 
 const AppPresentation = () => {
   const {
@@ -31,9 +30,7 @@ const AppPresentation = () => {
           />
         </Modal>
       )}
-      <Content>
-        <ProductListing />
-      </Content>
+      <ProductListing />
     </>
   );
 };

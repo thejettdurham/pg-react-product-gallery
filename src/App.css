@@ -17,3 +17,7 @@ body {
 .search-input::placeholder {
   color: rgba(123, 123, 123, 0.78);
 }
+
+.price-input::placeholder {
+  color: #4a4a4a;
+}
