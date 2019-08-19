@@ -4,7 +4,25 @@ import store from "../store";
 import { execWithEventValue } from "../util";
 
 const styles = {
-  wrapper: {}
+  wrapper: {
+    display: "flex"
+  },
+  searchInput: {
+    background: "#ffffff",
+    borderRadius: "4px",
+    width: "661px",
+    height: "51px",
+    border: 0,
+    paddingLeft: "52px"
+  },
+  searchIcon: {
+    position: "relative",
+    fontSize: "18px",
+    zIndex: 1,
+    left: "20px",
+    color: "#525252",
+    width: 0
+  }
 };
 
 const SearchBoxPresentation = ({ query, setQuery }) => {
@@ -18,15 +36,15 @@ const SearchBoxPresentation = ({ query, setQuery }) => {
   return (
     <div style={styles.wrapper}>
       <form onSubmit={e => e.preventDefault()}>
-        <label>
-          Search
-          <input
-            type="text"
-            value={input}
-            onChange={execWithEventValue(setInput)}
-            placeholder="Search products by name"
-          />
-        </label>
+        <i style={styles.searchIcon} className="fa fa-search" />
+        <input
+          className="search-input"
+          style={styles.searchInput}
+          type="text"
+          value={input}
+          onChange={execWithEventValue(setInput)}
+          placeholder="Search products by name"
+        />
       </form>
     </div>
   );

@@ -1,4 +1,5 @@
-html, body {
+html,
+body {
   margin: 0;
   height: 100%;
 }
@@ -11,4 +12,8 @@ body {
   font-size: 18px;
   text-align: center;
   padding: 0 30px;
+}
+
+.search-input::placeholder {
+  color: rgba(123, 123, 123, 0.78);
 }
