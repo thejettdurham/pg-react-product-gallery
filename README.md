@@ -1,6 +1,6 @@
 # React Product Gallery
 
-Completed React Product Gallery for PracticeGenius hiring process. The original README is [here](README.original.md) for posterity.
+An example React Product Gallery for fun.
 
 ## Instructions
 
