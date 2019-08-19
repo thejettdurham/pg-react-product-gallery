@@ -6,13 +6,12 @@ const styles = {
     boxSizing: "border-box",
     width: "193px",
     height: "354px",
-    padding: "20px",
-    border: "1px solid #e4e4e4",
     boxShadow: "0 4px 14px 7px rgba(121,121,121,0.05)",
     borderRadius: "4px",
     display: "flex",
     flexDirection: "column",
-    justifyContent: "flex-start"
+    justifyContent: "flex-start",
+    cursor: "pointer"
   },
   imageWrapper: {
     height: "189px",
@@ -41,7 +40,7 @@ const styles = {
 
 const ProductGridItem = ({ product, onClick }) => {
   return (
-    <div style={styles.wrapper} {...{ onClick }}>
+    <div style={styles.wrapper} className="product-grid-item" {...{ onClick }}>
       <div style={styles.imageWrapper}>
         <img
           style={styles.image}

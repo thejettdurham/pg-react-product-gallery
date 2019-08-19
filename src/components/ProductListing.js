@@ -1,8 +1,8 @@
 import React from "react";
-import ProductsGrid from "../components/ProductsGrid";
-import ProductCategoriesList from "../components/ProductCategoriesList";
-import ProductPriceFilter from "../components/ProductPriceFilter";
-import SidebarWrapper from "../components/SidebarWrapper";
+import ProductsGrid from "./ProductsGrid";
+import ProductCategoriesList from "./ProductCategoriesList";
+import ProductPriceFilter from "./ProductPriceFilter";
+import SidebarWrapper from "./SidebarWrapper";
 
 const styles = {
   wrapper: {

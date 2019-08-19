@@ -3,7 +3,7 @@ import "./App.css";
 import StoreProvider from "./StoreProvider";
 import Header from "./components/Header";
 import Modal from "./components/Modal";
-import ProductListing from "./screens/ProductListing";
+import ProductListing from "./components/ProductListing";
 import store from "./store";
 import ProductDetail from "./components/ProductDetail";
 
