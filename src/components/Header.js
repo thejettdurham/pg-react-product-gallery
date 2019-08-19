@@ -8,10 +8,10 @@ const styles = {
 
 const Header = () => {
   return (
-    <div style={styles.wrapper}>
+    <header style={styles.wrapper}>
       <h1 style={styles.headerText}>Amazing Store</h1>
       <SearchBox />
-    </div>
+    </header>
   );
 };
 

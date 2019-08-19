@@ -7,22 +7,22 @@ const initialState = {
     products: _.keyBy(products, "id"),
     categories: _.keyBy(categories, "id")
   },
-  category: null,
+  category: categories[0].id,
   product: null,
-  minPrice: null,
-  maxPrice: null,
+  priceFilter: [null, null],
   search: ""
 };
 
 const actions = {
   SET_SEARCH: "SET_SEARCH",
-  SET_MIN_PRICE: "SET_MIN_PRICE",
-  SET_MAX_PRICE: "SET_MAX_PRICE",
+  SET_PRICE_FILTER: "SET_PRICE_FILTER",
   SET_CATEGORY: "SET_CATEGORY",
   SET_PRODUCT: "SET_PRODUCT"
 };
 
 const stateReducer = (state, action) => {
+  console.log("DISPATCH", action);
+
   switch (action.type) {
     case actions.SET_SEARCH:
       return {
@@ -30,16 +30,10 @@ const stateReducer = (state, action) => {
         search: action.payload
       };
 
-    case actions.SET_MIN_PRICE:
+    case actions.SET_PRICE_FILTER:
       return {
         ...state,
-        minPrice: action.payload
-      };
-
-    case actions.SET_MAX_PRICE:
-      return {
-        ...state,
-        maxPrice: action.payload
+        priceFilter: action.payload
       };
 
     case actions.SET_CATEGORY:
@@ -67,5 +61,7 @@ const store = {
   stateReducer,
   StoreContext
 };
+
+console.log(initialState);
 
 export default store;

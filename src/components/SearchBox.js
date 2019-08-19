@@ -17,7 +17,7 @@ const SearchBoxPresentation = ({ query, setQuery }) => {
 
   return (
     <div style={styles.wrapper}>
-      <form>
+      <form onSubmit={e => e.preventDefault()}>
         <label>
           Search
           <input

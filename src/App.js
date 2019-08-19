@@ -10,15 +10,25 @@ import Content from "./components/Content";
 
 const AppPresentation = () => {
   const {
-    state: { product }
+    state: { data, product },
+    dispatch
   } = React.useContext(store.StoreContext);
+
+  const dismissProduct = () =>
+    dispatch({
+      type: store.actions.SET_PRODUCT,
+      payload: null
+    });
 
   return (
     <>
       <Header />
       {product == null ? null : (
-        <Modal>
-          <ProductDetail product={product} />
+        <Modal dismissModal={dismissProduct}>
+          <ProductDetail
+            product={data.products[product]}
+            {...{ dismissProduct }}
+          />
         </Modal>
       )}
       <Content>
